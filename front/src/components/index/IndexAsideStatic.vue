@@ -1,26 +1,26 @@
 <template>
   <el-aside class="index-aside" height="100vh" width="210px">
     <div class="index-aside-inner menulist" style="height:100%">
-      <div v-for="item in menuList" :key="item.roleName" v-if="role==item.roleName" class="menulist-item" style="height:100%;broder:0;background-color:#EEEEEE">
-        <div class="menulistImg" style="backgroundColor:#009688;padding:25px 0" v-if="false && menulistStyle == 'vertical'">
+      <div v-for="item in menuList" :key="item.roleName" v-if="role==item.roleName" class="menulist-item" style="height:100%;broder:0;background-color:#5E5B5B">
+        <div class="menulistImg" style="backgroundColor:#ff0000;padding:25px 0" v-if="false && menulistStyle == 'vertical'">
           <el-image v-if="'http://codegen.caihongy.cn/20201021/cc7d45d9c8164b58b18351764eba9be1.jpg'" src="http://codegen.caihongy.cn/20201021/cc7d45d9c8164b58b18351764eba9be1.jpg" fit="cover" />
         </div>
-        <el-menu mode="vertical" :unique-opened="true" class="el-menu-demo" style="height:100%;" background-color="#EEEEEE" text-color="#009688" active-text-color="#03B577" default-active="0">
-          <el-menu-item index="0" :style="menulistBorderBottom" @click="menuHandler('')"><i v-if="true" class="el-icon-s-home" />首页</el-menu-item>
-          <el-submenu :index="1+''" :style="menulistBorderBottom">
+        <el-menu mode="horizontal" :unique-opened="true" class="el-menu-demo" style="height:100%;" background-color="#5E5B5B" text-color="#ffffff" active-text-color="#E8C66F" default-active="0">
+          <el-menu-item index="(0).toString()" :style="menulistBorderBottom" @click="menuHandler('')"><i v-if="true" class="el-icon-s-home" />首页</el-menu-item>
+          <el-submenu :index="(1).toString()" :style="menulistBorderBottom">
             <template slot="title">
               <i v-if="true" class="el-icon-user-solid" />
               <span>个人中心</span>
             </template>
-            <el-menu-item :index="1-1" @click="menuHandler('updatePassword')">修改密码</el-menu-item>
-            <el-menu-item :index="1-2" @click="menuHandler('center')">个人信息</el-menu-item>
+            <el-menu-item :index="(1-2).toString()" @click="menuHandler('updatePassword')">修改密码</el-menu-item>
+            <el-menu-item :index="(1-2).toString()" @click="menuHandler('center')">个人信息</el-menu-item>
           </el-submenu>
-          <el-submenu :style="menulistBorderBottom" v-for=" (menu,index) in item.backMenu" :key="menu.menu" :index="index+2+''">
+          <el-submenu :style="menulistBorderBottom" v-for=" (menu,index) in item.backMenu" :key="menu.menu" :index="(index+2).toString()">
             <template slot="title">
               <i v-if="true" :class="icons[index]" />
               <span>{{ menu.menu }}</span>
             </template>
-            <el-menu-item v-for=" (child,sort) in menu.child" :key="sort" :index="(index+2)+'-'+sort" @click="menuHandler(child.tableName)">{{ child.menu }}</el-menu-item>
+            <el-menu-item v-for=" (child,sort) in menu.child" :key="sort" :index="((index+2)+'-'+sort).toString()" @click="menuHandler(child.tableName)">{{ child.menu }}</el-menu-item>
           </el-submenu>
         </el-menu>
 
@@ -77,7 +77,7 @@ export default {
         'el-icon-mic',
         'el-icon-stopwatch',
       ],
-      menulistStyle: 'vertical',
+      menulistStyle: 'horizontal',
 	  menulistBorderBottom: {},
     }
   },
@@ -97,10 +97,10 @@ export default {
   },
   methods: {
 	lineBorder() {
-		let style = 'vertical'
+		let style = 'horizontal'
 		let w = '1px'
 		let s = 'solid'
-		let c = '#009688'
+		let c = '#ccc'
 		if(style == 'vertical') {
 			this.menulistBorderBottom = {
 				borderBottomWidth: w,
@@ -118,7 +118,7 @@ export default {
     menuHandler(name) {
       let router = this.$router
       name = '/'+name
-      router.push(name)
+      router.push(name).catch(err => err)
     },
     // 菜单
     setMenulistHoverColor(){
@@ -127,25 +127,25 @@ export default {
         document.querySelectorAll('.menulist .el-menu-item').forEach(el=>{
           el.addEventListener("mouseenter", e => {
             e.stopPropagation()
-            el.style.backgroundColor = "rgba(171, 165, 166, 0.73)"
+            el.style.backgroundColor = "rgba(199, 214, 205, 0.78)"
           })
           el.addEventListener("mouseleave", e => {
             e.stopPropagation()
-            el.style.backgroundColor = "#EEEEEE"
+            el.style.backgroundColor = "#5E5B5B"
           })
           el.addEventListener("focus", e => {
             e.stopPropagation()
-            el.style.backgroundColor = "rgba(171, 165, 166, 0.73)"
+            el.style.backgroundColor = "rgba(199, 214, 205, 0.78)"
           })
         })
         document.querySelectorAll('.menulist .el-submenu__title').forEach(el=>{
           el.addEventListener("mouseenter", e => {
             e.stopPropagation()
-            el.style.backgroundColor = "rgba(171, 165, 166, 0.73)"
+            el.style.backgroundColor = "rgba(199, 214, 205, 0.78)"
           })
           el.addEventListener("mouseleave", e => {
             e.stopPropagation()
-            el.style.backgroundColor = "#EEEEEE"
+            el.style.backgroundColor = "#5E5B5B"
           })
         })
       })
@@ -153,7 +153,7 @@ export default {
     setMenulistIconColor() {
       this.$nextTick(()=>{
         document.querySelectorAll('.menulist .el-submenu__title .el-submenu__icon-arrow').forEach(el=>{
-          el.style.color = "rgba(0, 150, 136, 1)"
+          el.style.color = "rgba(245, 83, 185, 0.72)"
         })
       })
     },
@@ -161,16 +161,16 @@ export default {
       this.setMenulistIconColor()
       this.setMenulistHoverColor()
       this.setMenulistStyleHeightChange()
-      let str = "vertical"
+      let str = "horizontal"
       if("horizontal" === str) {
         this.$nextTick(()=>{
           document.querySelectorAll('.el-container .el-container').forEach(el=>{
             el.style.display = "block"
-            el.style.paddingTop = "80px" // header 高度
+            el.style.paddingTop = "60px" // header 高度
           })
           document.querySelectorAll('.el-aside').forEach(el=>{
             el.style.width = "100%"
-            el.style.height = "60px"
+            el.style.height = "55px"
             el.style.paddingTop = '0'
           })
           document.querySelectorAll('.index-aside .index-aside-inner').forEach(el=>{
@@ -181,7 +181,7 @@ export default {
       if("vertical" === str) {
         this.$nextTick(()=>{
           document.querySelectorAll('.index-aside .index-aside-inner').forEach(el=>{
-            el.style.paddingTop = "80px"
+            el.style.paddingTop = "60px"
           })
         })
       }
@@ -189,12 +189,12 @@ export default {
     setMenulistStyleHeightChange() {
       this.$nextTick(()=>{
         document.querySelectorAll('.menulist-item>.el-menu--horizontal>.el-menu-item').forEach(el=>{
-          el.style.height = "60px"
-          el.style.lineHeight = "60px"
+          el.style.height = "55px"
+          el.style.lineHeight = "55px"
         })
         document.querySelectorAll('.menulist-item>.el-menu--horizontal>.el-submenu>.el-submenu__title').forEach(el=>{
-          el.style.height = "60px"
-          el.style.lineHeight = "60px"
+          el.style.height = "55px"
+          el.style.lineHeight = "55px"
         })
       })
     },

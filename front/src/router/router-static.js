@@ -11,13 +11,30 @@ import UpdatePassword from '@/views/update-password'
 import pay from '@/views/pay'
 import register from '@/views/register'
 import center from '@/views/center'
+
+     import users from '@/views/modules/users/list'
+    import dictionary from '@/views/modules/dictionary/list'
+    import fangjian from '@/views/modules/fangjian/list'
+    import fangjianruzhu from '@/views/modules/fangjianruzhu/list'
+    import fankui from '@/views/modules/fankui/list'
+    import houqinrenyuan from '@/views/modules/houqinrenyuan/list'
+    import hugong from '@/views/modules/hugong/list'
+    import laoren from '@/views/modules/laoren/list'
+    import liuyan from '@/views/modules/liuyan/list'
     import news from '@/views/modules/news/list'
-    import dingpiaoxinxi from '@/views/modules/dingpiaoxinxi/list'
+    import tijianyuan from '@/views/modules/tijianyuan/list'
+    import wuzi from '@/views/modules/wuzi/list'
     import yonghu from '@/views/modules/yonghu/list'
-    import yonghupingjia from '@/views/modules/yonghupingjia/list'
-    import discussjingdianxinxi from '@/views/modules/discussjingdianxinxi/list'
-    import jingdianxinxi from '@/views/modules/jingdianxinxi/list'
-    import config from '@/views/modules/config/list'
+    import dictionaryFangjian from '@/views/modules/dictionaryFangjian/list'
+    import dictionaryFankui from '@/views/modules/dictionaryFankui/list'
+    import dictionaryJibing from '@/views/modules/dictionaryJibing/list'
+    import dictionaryLaoren from '@/views/modules/dictionaryLaoren/list'
+    import dictionaryNews from '@/views/modules/dictionaryNews/list'
+    import dictionarySex from '@/views/modules/dictionarySex/list'
+    import dictionaryWuzi from '@/views/modules/dictionaryWuzi/list'
+
+
+
 
 
 //2.配置路由   注意：名字
@@ -46,42 +63,110 @@ const routes = [{
       name: '个人信息',
       component: center,
       meta: {icon:'', title:'center'}
+    } ,{
+        path: '/users',
+        name: '管理信息',
+        component: users
+      }
+    ,{
+        path: '/dictionaryFangjian',
+        name: '房间类型',
+        component: dictionaryFangjian
     }
-      ,{
-	path: '/news',
-        name: '景点资讯',
+    ,{
+        path: '/dictionaryFankui',
+        name: '反馈类型',
+        component: dictionaryFankui
+    }
+    ,{
+        path: '/dictionaryJibing',
+        name: '是否有疾病',
+        component: dictionaryJibing
+    }
+    ,{
+        path: '/dictionaryLaoren',
+        name: '老人身体状态',
+        component: dictionaryLaoren
+    }
+    ,{
+        path: '/dictionaryNews',
+        name: '公告类型',
+        component: dictionaryNews
+    }
+    ,{
+        path: '/dictionarySex',
+        name: '性别',
+        component: dictionarySex
+    }
+    ,{
+        path: '/dictionaryWuzi',
+        name: '物资类型',
+        component: dictionaryWuzi
+    }
+
+
+    ,{
+        path: '/dictionary',
+        name: '字典表',
+        component: dictionary
+      }
+    ,{
+        path: '/fangjian',
+        name: '房间信息',
+        component: fangjian
+      }
+    ,{
+        path: '/fangjianruzhu',
+        name: '房间入住信息',
+        component: fangjianruzhu
+      }
+    ,{
+        path: '/fankui',
+        name: '反馈信息',
+        component: fankui
+      }
+    ,{
+        path: '/houqinrenyuan',
+        name: '后勤人员',
+        component: houqinrenyuan
+      }
+    ,{
+        path: '/hugong',
+        name: '护工',
+        component: hugong
+      }
+    ,{
+        path: '/laoren',
+        name: '老人信息',
+        component: laoren
+      }
+    ,{
+        path: '/liuyan',
+        name: '留言',
+        component: liuyan
+      }
+    ,{
+        path: '/news',
+        name: '公告',
         component: news
       }
-      ,{
-	path: '/dingpiaoxinxi',
-        name: '订票信息',
-        component: dingpiaoxinxi
+    ,{
+        path: '/tijianyuan',
+        name: '体检员',
+        component: tijianyuan
       }
-      ,{
-	path: '/yonghu',
+    ,{
+        path: '/wuzi',
+        name: '物资申请',
+        component: wuzi
+      }
+    ,{
+        path: '/yonghu',
         name: '用户',
         component: yonghu
       }
-      ,{
-	path: '/yonghupingjia',
-        name: '用户评价',
-        component: yonghupingjia
-      }
-      ,{
-	path: '/discussjingdianxinxi',
-        name: '景点信息评论',
-        component: discussjingdianxinxi
-      }
-      ,{
-	path: '/jingdianxinxi',
-        name: '景点信息',
-        component: jingdianxinxi
-      }
-      ,{
-	path: '/config',
-        name: '轮播图管理',
-        component: config
-      }
+
+
     ]
   },
   {

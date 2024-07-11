@@ -145,7 +145,8 @@
   </div>
 </template>
 <script>
-import AddOrUpdate from "./add-or-update";
+import AddOrUpdate from "./add-or-update.vue";
+import styleJs from "../../../utils/style.js";
 export default {
   data() {
     return {
@@ -164,13 +165,14 @@ export default {
       shForm: {},
       chartVisiable: false,
       addOrUpdateFlag:false,
-      contents:{"searchBtnFontColor":"rgba(255, 255, 255, 1)","pagePosition":"1","inputFontSize":"14px","inputBorderRadius":"0px","tableBtnDelFontColor":"rgba(0, 150, 136, 1)","tableBtnIconPosition":"1","searchBtnHeight":"40px","inputIconColor":"rgba(0, 150, 136, 1)","searchBtnBorderRadius":"4px","tableStripe":true,"btnAdAllWarnFontColor":"rgba(255, 255, 255, 1)","tableBtnDelBgColor":"rgba(255, 255, 255, 1)","searchBtnIcon":"1","tableSize":"medium","searchBtnBorderStyle":"solid","tableSelection":true,"searchBtnBorderWidth":"0px","tableContentFontSize":"14px","searchBtnBgColor":"rgba(0, 150, 136, 1)","inputTitleSize":"14px","btnAdAllBorderColor":"#DCDFE6","pageJumper":true,"btnAdAllIconPosition":"1","searchBoxPosition":"3","tableBtnDetailFontColor":"rgba(0, 150, 136, 1)","tableBtnHeight":"40px","pagePager":true,"searchBtnBorderColor":"#DCDFE6","tableHeaderFontColor":"rgba(255, 255, 255, 1)","inputTitle":"1","tableBtnBorderRadius":"20px","btnAdAllFont":"0","btnAdAllDelFontColor":"rgba(255, 255, 255, 1)","tableBtnIcon":"1","btnAdAllHeight":"40px","btnAdAllWarnBgColor":"rgba(24, 144, 255, 1)","btnAdAllBorderWidth":"1px","tableStripeFontColor":"#606266","tableBtnBorderStyle":"solid","inputHeight":"40px","btnAdAllBorderRadius":"20px","btnAdAllDelBgColor":"rgba(255, 69, 0, 1)","pagePrevNext":true,"btnAdAllAddBgColor":"rgba(0, 150, 136, 1)","searchBtnFont":"1","tableIndex":true,"btnAdAllIcon":"1","tableSortable":false,"pageSizes":true,"tableFit":true,"pageBtnBG":true,"searchBtnFontSize":"14px","tableBtnEditBgColor":"rgba(255, 255, 255, 1)","inputBorderWidth":"1px","inputFontPosition":"3","inputFontColor":"rgba(0, 0, 0, 1)","pageEachNum":10,"tableHeaderBgColor":"rgba(0, 150, 136, 1)","inputTitleColor":"rgba(0, 150, 136, 1)","btnAdAllBoxPosition":"3","tableBtnDetailBgColor":"rgba(255, 255, 255, 1)","inputIcon":"1","searchBtnIconPosition":"2","btnAdAllFontSize":"10px","inputBorderStyle":"none none solid none","inputBgColor":"#fff","pageStyle":false,"pageTotal":true,"btnAdAllAddFontColor":"rgba(255, 255, 255, 1)","tableBtnFont":"1","tableContentFontColor":"#606266","inputBorderColor":"rgba(0, 150, 136, 1)","tableShowHeader":true,"tableBtnFontSize":"10px","tableBtnBorderColor":"#DCDFE6","inputIconPosition":"1","tableBorder":true,"btnAdAllBorderStyle":"solid","tableBtnBorderWidth":"1px","tableStripeBgColor":"#F5F7FA","tableBtnEditFontColor":"rgba(0, 150, 136, 1)","tableAlign":"center"},
+      contents:null,
       layouts: '',
 
 
     };
   },
   created() {
+    this.contents = styleJs.listStyle();
     this.init();
     this.getDataList();
     this.contentStyleChange()
@@ -464,7 +466,7 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
-  .slt {
+.slt {
     margin: 0 !important;
     display: flex;
   }
@@ -482,49 +484,48 @@ export default {
       }
     }
   }
-  
+
 
   .el-button+.el-button {
     margin:0;
-  } 
+  }
 
   .tables {
 	& /deep/ .el-button--success {
 		height: 40px;
-		color: rgba(0, 150, 136, 1);
-		font-size: 10px;
+		color: rgba(52, 51, 47, 0.93);
+		font-size: 14px;
 		border-width: 1px;
 		border-style: solid;
 		border-color: #DCDFE6;
-		border-radius: 20px;
-		background-color: rgba(255, 255, 255, 1);
+		border-radius: 8px;
+		background-color: rgba(232, 198, 111, 1);
 	}
-	
+
 	& /deep/ .el-button--primary {
 		height: 40px;
-		color: rgba(0, 150, 136, 1);
-		font-size: 10px;
+		color: #333;
+		font-size: 14px;
 		border-width: 1px;
 		border-style: solid;
 		border-color: #DCDFE6;
-		border-radius: 20px;
-		background-color: rgba(255, 255, 255, 1);
+		border-radius: 8px;
+		background-color: rgba(102, 130, 214, 0.51);
 	}
-	
+
 	& /deep/ .el-button--danger {
 		height: 40px;
-		color: rgba(0, 150, 136, 1);
-		font-size: 10px;
+		color: #333;
+		font-size: 14px;
 		border-width: 1px;
 		border-style: solid;
 		border-color: #DCDFE6;
-		border-radius: 20px;
-		background-color: rgba(255, 255, 255, 1);
+		border-radius: 8px;
+		background-color: rgba(245, 83, 185, 0.72);
 	}
 
     & /deep/ .el-button {
       margin: 4px;
     }
   }
-
 </style>

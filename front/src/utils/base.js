@@ -1,15 +1,15 @@
 const base = {
     get() {
         return {
-            url : "http://localhost:8080/springbootul0e4/",
-            name: "springbootul0e4",
+            url : "http://localhost:8080/shehuizhihuiyanglaojianhu/",
+            name: "shehuizhihuiyanglaojianhu",
             // 退出到首页链接
-            indexUrl: 'http://localhost:8080/springbootul0e4/front/index.html'
+            indexUrl: 'http://localhost:8080/shehuizhihuiyanglaojianhu/front/index.html'
         };
     },
     getProjectName(){
         return {
-            projectName: "旅游管理系统"
+            projectName: "社区智慧养老监护管理平台"
         } 
     }
 }

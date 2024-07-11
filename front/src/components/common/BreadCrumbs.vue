@@ -1,6 +1,6 @@
 <template>
-  <el-breadcrumb class="app-breadcrumb" separator="♚" style="height:50px;backgroundColor:rgba(255, 255, 255, 1);borderRadius:0px;padding:0px 20px 0px 20px;boxShadow:0px 0px 0px #f903d4;borderWidth:1px;borderStyle:none none solid none ;borderColor:rgba(0, 150, 136, 1);">
-    <transition-group name="breadcrumb" class="box" :style="1==1?'justifyContent:flex-start;':1==2?'justifyContent:center;':'justifyContent:flex-end;'">
+  <el-breadcrumb class="app-breadcrumb" separator="/" style="height:50px;backgroundColor:rgba(232, 198, 111, 1);borderRadius:4px;padding:0px 20px 0px 20px;boxShadow:;borderWidth:2px;borderStyle:;borderColor:rgba(120, 115, 115, 1);">
+    <transition-group name="breadcrumb" class="box" :style="2==1?'justifyContent:flex-start;':2==2?'justifyContent:center;':'justifyContent:flex-end;'">
       <el-breadcrumb-item v-for="(item,index) in levelList" :key="item.path">
         <span v-if="item.redirect==='noRedirect'||index==levelList.length-1" class="no-redirect">{{ item.name }}</span>
         <a v-else @click.prevent="handleLink(item)">{{ item.name }}</a>
@@ -62,19 +62,19 @@ export default {
     breadcrumbStyleChange(val) {
       this.$nextTick(()=>{
         document.querySelectorAll('.app-breadcrumb .el-breadcrumb__separator').forEach(el=>{
-          el.innerText = "♚"
-          el.style.color = "rgba(255, 69, 0, 1)"
+          el.innerText = "/"
+          el.style.color = "rgba(14, 14, 14, 1)"
         })
         document.querySelectorAll('.app-breadcrumb .el-breadcrumb__inner a').forEach(el=>{
-          el.style.color = "rgba(251, 0, 29, 0.73)"
+          el.style.color = "rgba(25, 25, 26, 1)"
         })
         document.querySelectorAll('.app-breadcrumb .el-breadcrumb__inner .no-redirect').forEach(el=>{
-          el.style.color = "rgba(255, 69, 0, 1)"
+          el.style.color = "rgba(251, 74, 8, 0.81)"
         })
 
-        let str = "vertical"
+        let str = "horizontal"
         if("vertical" === str) {
-          let headHeight = "80px"
+          let headHeight = "60px"
           headHeight = parseInt(headHeight) + 10 + 'px'
           document.querySelectorAll('.app-breadcrumb').forEach(el=>{
             el.style.marginTop = headHeight
